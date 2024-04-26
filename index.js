@@ -4,8 +4,6 @@ require('dotenv').config();
 const port = process.env.PORT || 5000;
 const app = express()
 
-// tAlZp4MQIaBksZbR
-// starCraft
 
 // middleware
 
@@ -33,6 +31,12 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
+
+    app.post('/add_craft', (req, res)=>{
+
+      console.log(req.body);
+    })
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");

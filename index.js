@@ -34,6 +34,23 @@ async function run() {
 
 
     const craftCollection = client.db('craftDB').collection('craftInfo')
+ 
+
+    app.get('/category', async (req, res) => {
+      const catagoryCollection = client.db('categoryDB').collection('categoryInfo')
+ 
+      const cursor = catagoryCollection.find();
+      const result = await cursor.toArray();
+    
+      res.send(result);
+  });
+
+app.get('/catagory_items/:catagory_name', async(req, res)=>{
+  const cataName = req.params.catagory_name
+const query = { catagory: cataName}
+const result = await craftCollection.find(query).toArray()
+res.send(result)
+})
 
     app.delete('/delete/:id',async (req, res)=>{
 

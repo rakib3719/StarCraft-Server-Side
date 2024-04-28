@@ -70,7 +70,6 @@ const updatedCraftsdata = {
 
 
   $set:{
-
     items_name: craftsData.items_name,
     photo : craftsData.photo,
     stock_status: craftsData.stock_status,
@@ -80,7 +79,6 @@ const updatedCraftsdata = {
         description :craftsData.description,
          catagory :craftsData.catagory,
          price :craftsData.price
-
   }
 }
 
@@ -122,7 +120,7 @@ const craftData = req.body
 
 
 
-// 662bb61da5554b943c4045f3
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -136,7 +134,7 @@ run().catch(console.dir);
 
 app.get('/', (req,res)=>{
 
-    res.send("A-10 server site ready to work")
+    res.send("StarCraft server site ready to work")
 })
 
 

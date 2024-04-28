@@ -34,7 +34,37 @@ async function run() {
 
 
     const craftCollection = client.db('craftDB').collection('craftInfo')
+
+    app.get('/customization/:email', async (req, res) => {
+      const email = req.params.email
+      
+          const result = await craftCollection.aggregate([
+              {
+                  $match: { customization: "yes",
+                              email: email
+                 }
+              }
+          ]).toArray(); 
+          res.send(result);
+    
+  });
+    app.get('/customization_not/:email', async (req, res) => {
+      const email = req.params.email
+      
+          const result = await craftCollection.aggregate([
+              {
+                  $match: { customization: "no",
+                              email: email
+                 }
+              }
+          ]).toArray(); 
+          res.send(result);
+    
+  });
+  
  
+  
+  
 
     app.get('/category', async (req, res) => {
       const catagoryCollection = client.db('categoryDB').collection('categoryInfo')

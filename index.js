@@ -38,10 +38,8 @@ async function run() {
 
     app.get('/category', async (req, res) => {
       const catagoryCollection = client.db('categoryDB').collection('categoryInfo')
- 
       const cursor = catagoryCollection.find();
       const result = await cursor.toArray();
-    
       res.send(result);
   });
 
